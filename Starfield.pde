@@ -1,19 +1,20 @@
 //your code here
-NormalParticle [] dots;
-int numDots= 300;
+NormalParticle[] dots;
+//int numDots= 300;
 void setup()
 {
-	size(500, 500);
-	dots= new NormalParticle [numDots];
+	size(800, 800);
+	dots= new NormalParticle [500];
 	for(int i=0; i<dots.length; i++)
 	{
 		dots[i]= new NormalParticle();
+		
 
 	}//your code here
 }
 void draw()
 {
-	
+	background(0);
 	for(int i=0; i<dots.length; i++)
 	{
 		dots[i].move();
@@ -24,23 +25,31 @@ class NormalParticle
 {
 	double dX, dY, dSpeed, dAngle;
 	int Color;
-	NormalParticle(x,y)
+	int pattern;
+	NormalParticle()
 	{
-		dX=x;
-		dY=y;
+		
+		dX=400;
+		dY=400;
 		dSpeed=(Math.random()*15);
-		dAngle=(Math.PI*2*Math.random();
+		dAngle=(Math.PI*2*Math.random());
 		Color=color((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
+		pattern= (int)(Math.random()*5);
 	}
-	void move()
+	public void move()
 	{
-		Math.cos(dAngle)*dSpeed+dX;
-		Math.sin(dAngle)*dSpeed+dY;
+		dX=Math.cos(dAngle)*dSpeed+dX;
+		dY=Math.sin(dAngle)*dSpeed+dY;
 	}
-	void show()
+	public void show()
 	{
 		fill(Color);
-		ellipse((int)dX, (int) dY, 5, 5);
+		noStroke();
+		ellipse((int)dX, (int) dY, 20, 20);
+	}
+	public void mousePressed()
+	{
+
 	}
 	//your code here
 }
