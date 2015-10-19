@@ -118,11 +118,12 @@ class JumboParticle extends NormalParticle //uses inheritance
 	} 
 	public void move()
 	{
-		dX=dX+(int)(Math.random()*4)-1;
+		dX=dX+(int)(Math.random()*6)-2;
 	}
 	public void show()
 	{
-		
+		fill(255);
+		ellipse((int)dX, (int)dY-90, 150, 150);
 	}
 
 	//your code here
