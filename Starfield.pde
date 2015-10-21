@@ -1,11 +1,10 @@
-//your code here
 Particle [] dots;
 double dX, dY;
-//int numDots= 300;
+
 void setup()
 {
 	size(800, 800);
-	frameRate(30);
+	frameRate(40);
 	dots= new Particle [500];
 	
 	for(int i=0; i<dots.length; i++)
@@ -24,7 +23,6 @@ void setup()
 		}
 		
 	}
-	//your code here
 }
 void draw()
 {
@@ -39,23 +37,19 @@ void draw()
 			((NormalParticle)dots[i]).reIntial();
 		}
 	}
-	//your code here
-	
 }
 class NormalParticle implements Particle
 {
 	double dX, dY, dSpeed, dAngle;
 	int Color;
-	//int pattern;
+	
 	NormalParticle()
 	{
-		
 		dX=400;
 		dY=400;
 		dSpeed=(Math.random()*15);
 		dAngle=(Math.PI*2*Math.random());
 		Color=color((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
-		//pattern= (int)(Math.random()*5);
 	}
 	public void move()
 	{
@@ -79,33 +73,19 @@ class NormalParticle implements Particle
 		if(dX>800 || dY<0)
 		{
 			dY= 400;
-			//dSpeed=(int)(Math.random()*15);
+			
 		}
 		if(dY>800 || dY<0)
 		{
 			dY=400;
-			//dAngle=(int)(Math.PI*2*Math.random());
+			
 		}
 	}
-	/*
-
-  public void mousePressed()
-	{
-		pattern= (int)(Math.random()*5);
-		dX=400;
-		dY=400;
-		if(pattern==1)
-		{
-			dSpeed=(int)(Math.random()*15);
-		}
-
-	}*/
-	//your code here
 }
 interface Particle
 {
 	public void show();
-	public void move();//your code here
+	public void move();
 }
 class OddballParticle implements Particle//uses an interface
 {
@@ -121,7 +101,7 @@ class OddballParticle implements Particle//uses an interface
 	public void move()
 	{
 		
-		dX=dX+(int)(Math.random()*3)-1;
+		dX=dX+(int)(Math.random()*3);
 		dY= dY+ (int)(Math.random()*4)-1;
 	}
 	public void show()
@@ -135,7 +115,6 @@ class OddballParticle implements Particle//uses an interface
 		stroke(0);
 		arc((int)dX+1, (int)dY+4, 50, 50, 0, PI);
 	}
-	//your code here
 }
 class JumboParticle extends NormalParticle //uses inheritance
 {
@@ -148,20 +127,17 @@ class JumboParticle extends NormalParticle //uses inheritance
 	} 
 	public void move()
 	{
-		dX=dX+(int)(Math.random()*6)-2;
+		dX=dX+(int)(Math.random()*6)-3;
 	}
 	public void show()
 	{
 		fill(255);
-		ellipse((int)dX, (int)dY, 150, 150);
+		ellipse((int)dX, (int)dY-70, 150, 150);
 		fill(0);
-		ellipse((int)dX-30, (int)dY, 20, 20);
-		ellipse((int)dX+20, (int)dY, 20 ,20);
+		ellipse((int)dX-30, (int)dY-70, 20, 20);
+		ellipse((int)dX+20, (int)dY-70, 20 ,20);
 		noFill();
-		ellipse((int)dX, (int)dY+40, 100, 50);
-
+		ellipse((int)dX, (int)dY-20, 100, 50);
 	}
-
-	
 }
 
