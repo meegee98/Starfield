@@ -5,6 +5,7 @@ double dX, dY;
 void setup()
 {
 	size(800, 800);
+	frameRate(30);
 	dots= new Particle [500];
 	
 	for(int i=0; i<dots.length; i++)
